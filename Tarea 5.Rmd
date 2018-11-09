@@ -40,6 +40,9 @@ graph4=ggplot(retornoac2, aes(x=1:nrow(retornoac2), y=retornoac2$`Retorno acum. 
 plot(graph4)
 
 
+
+
+
 #funcion1=function(x){
  # if (x=MSFTDF)
   #retorno=data.frame((MSFTDF$MSFT.Close[x]-MSFTDF$MSFT.Close[x-1])/MSFTDF$MSFT.Close[x-1])
