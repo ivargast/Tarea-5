@@ -1703,9 +1703,46 @@ $(document).ready(function () {
 <p>Try executing this chunk by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Ctrl+Shift+Enter</em>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChjYXJzKVxuYGBgIn0= -->
-<pre class="r"><code>plot(cars)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICAgIGluc3RhbGwucGFja2FnZXMoXCJxdWFudG1vZFwiKVxuYGBgIn0= -->
+<pre class="r"><code>    install.packages(&quot;quantmod&quot;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gaW5zdGFsbC5wYWNrYWdlcyA6IFVwZGF0aW5nIGxvYWRlZCBwYWNrYWdlc1xuIn0= -->
+<pre><code>Error in install.packages : Updating loaded packages</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICAgIGxpYnJhcnkocXVhbnRtb2QpXG5cbnN0YXJ0IDwtIGFzLkRhdGUoXCIyMDAwLTAxLTAxXCIpXG5lbmQgPC0gYXMuRGF0ZShcIjIwMTgtMDgtMDFcIilcblxuZ2V0U3ltYm9scyhcIkFBUExcIiwgc3JjID0gXCJ5YWhvb1wiLCBmcm9tID0gc3RhcnQsIHRvID0gZW5kLCBwZXJpb2RpY2l0eSA9IFwibW9udGhseVwiKVxuYGBgIn0= -->
+<pre class="r"><code>    library(quantmod)
+
+start &lt;- as.Date(&quot;2000-01-01&quot;)
+end &lt;- as.Date(&quot;2018-08-01&quot;)
+
+getSymbols(&quot;AAPL&quot;, src = &quot;yahoo&quot;, from = start, to = end, periodicity = &quot;monthly&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoi4oCYZ2V0U3ltYm9sc+KAmSBjdXJyZW50bHkgdXNlcyBhdXRvLmFzc2lnbj1UUlVFIGJ5IGRlZmF1bHQsIGJ1dCB3aWxsXG51c2UgYXV0by5hc3NpZ249RkFMU0UgaW4gMC41LTAuIFlvdSB3aWxsIHN0aWxsIGJlIGFibGUgdG8gdXNlXG7igJhsb2FkU3ltYm9sc+KAmSB0byBhdXRvbWF0aWNhbGx5IGxvYWQgZGF0YS4gZ2V0T3B0aW9uKFwiZ2V0U3ltYm9scy5lbnZcIilcbmFuZCBnZXRPcHRpb24oXCJnZXRTeW1ib2xzLmF1dG8uYXNzaWduXCIpIHdpbGwgc3RpbGwgYmUgY2hlY2tlZCBmb3JcbmFsdGVybmF0ZSBkZWZhdWx0cy5cblxuVGhpcyBtZXNzYWdlIGlzIHNob3duIG9uY2UgcGVyIHNlc3Npb24gYW5kIG1heSBiZSBkaXNhYmxlZCBieSBzZXR0aW5nIFxub3B0aW9ucyhcImdldFN5bWJvbHMud2FybmluZzQuMFwiPUZBTFNFKS4gU2VlID9nZXRTeW1ib2xzIGZvciBkZXRhaWxzLlxuXG5cbldBUk5JTkc6IFRoZXJlIGhhdmUgYmVlbiBzaWduaWZpY2FudCBjaGFuZ2VzIHRvIFlhaG9vIEZpbmFuY2UgZGF0YS5cblBsZWFzZSBzZWUgdGhlIFdhcm5pbmcgc2VjdGlvbiBvZiDigJg/Z2V0U3ltYm9scy55YWhvb+KAmSBmb3IgZGV0YWlscy5cblxuVGhpcyBtZXNzYWdlIGlzIHNob3duIG9uY2UgcGVyIHNlc3Npb24gYW5kIG1heSBiZSBkaXNhYmxlZCBieSBzZXR0aW5nXG5vcHRpb25zKFwiZ2V0U3ltYm9scy55YWhvby53YXJuaW5nXCI9RkFMU0UpLlxuIn0= -->
+<pre><code>‘getSymbols’ currently uses auto.assign=TRUE by default, but will
+use auto.assign=FALSE in 0.5-0. You will still be able to use
+‘loadSymbols’ to automatically load data. getOption(&quot;getSymbols.env&quot;)
+and getOption(&quot;getSymbols.auto.assign&quot;) will still be checked for
+alternate defaults.
+
+This message is shown once per session and may be disabled by setting 
+options(&quot;getSymbols.warning4.0&quot;=FALSE). See ?getSymbols for details.
+
+
+WARNING: There have been significant changes to Yahoo Finance data.
+Please see the Warning section of ‘?getSymbols.yahoo’ for details.
+
+This message is shown once per session and may be disabled by setting
+options(&quot;getSymbols.yahoo.warning&quot;=FALSE).</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQUFQTFwiXG4ifQ== -->
+<pre><code>[1] &quot;AAPL&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2V0U3ltYm9scyhcIk1TRlRcIiwgc3JjID0gXCJ5YWhvb1wiLCBmcm9tID0gc3RhcnQsIHRvID0gZW5kLCBwZXJpb2RpY2l0eSA9IFwibW9udGhseVwiKVxuYGBgIn0= -->
+<pre class="r"><code>getSymbols(&quot;MSFT&quot;, src = &quot;yahoo&quot;, from = start, to = end, periodicity = &quot;monthly&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiTVNGVFwiXG4ifQ== -->
+<pre><code>[1] &quot;MSFT&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Ctrl+Alt+I</em>.</p>
@@ -1713,7 +1750,7 @@ $(document).ready(function () {
 <p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gCgpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ3RybCtTaGlmdCtFbnRlciouIAoKYGBge3J9CnBsb3QoY2FycykKYGBgCgpBZGQgYSBuZXcgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpJbnNlcnQgQ2h1bmsqIGJ1dHRvbiBvbiB0aGUgdG9vbGJhciBvciBieSBwcmVzc2luZyAqQ3RybCtBbHQrSSouCgpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkN0cmwrU2hpZnQrSyogdG8gcHJldmlldyB0aGUgSFRNTCBmaWxlKS4KClRoZSBwcmV2aWV3IHNob3dzIHlvdSBhIHJlbmRlcmVkIEhUTUwgY29weSBvZiB0aGUgY29udGVudHMgb2YgdGhlIGVkaXRvci4gQ29uc2VxdWVudGx5LCB1bmxpa2UgKktuaXQqLCAqUHJldmlldyogZG9lcyBub3QgcnVuIGFueSBSIGNvZGUgY2h1bmtzLiBJbnN0ZWFkLCB0aGUgb3V0cHV0IG9mIHRoZSBjaHVuayB3aGVuIGl0IHdhcyBsYXN0IHJ1biBpbiB0aGUgZWRpdG9yIGlzIGRpc3BsYXllZC4K</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gCgpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ3RybCtTaGlmdCtFbnRlciouIAoKYGBge3J9CiAgICBpbnN0YWxsLnBhY2thZ2VzKCJxdWFudG1vZCIpCiAgICBsaWJyYXJ5KHF1YW50bW9kKQoKc3RhcnQgPC0gYXMuRGF0ZSgiMjAwMC0wMS0wMSIpCmVuZCA8LSBhcy5EYXRlKCIyMDE4LTA4LTAxIikKCmdldFN5bWJvbHMoIkFBUEwiLCBzcmMgPSAieWFob28iLCBmcm9tID0gc3RhcnQsIHRvID0gZW5kLCBwZXJpb2RpY2l0eSA9ICJtb250aGx5IikKZ2V0U3ltYm9scygiTVNGVCIsIHNyYyA9ICJ5YWhvbyIsIGZyb20gPSBzdGFydCwgdG8gPSBlbmQsIHBlcmlvZGljaXR5ID0gIm1vbnRobHkiKQpgYGAKCkFkZCBhIG5ldyBjaHVuayBieSBjbGlja2luZyB0aGUgKkluc2VydCBDaHVuayogYnV0dG9uIG9uIHRoZSB0b29sYmFyIG9yIGJ5IHByZXNzaW5nICpDdHJsK0FsdCtJKi4KCldoZW4geW91IHNhdmUgdGhlIG5vdGVib29rLCBhbiBIVE1MIGZpbGUgY29udGFpbmluZyB0aGUgY29kZSBhbmQgb3V0cHV0IHdpbGwgYmUgc2F2ZWQgYWxvbmdzaWRlIGl0IChjbGljayB0aGUgKlByZXZpZXcqIGJ1dHRvbiBvciBwcmVzcyAqQ3RybCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLgoKVGhlIHByZXZpZXcgc2hvd3MgeW91IGEgcmVuZGVyZWQgSFRNTCBjb3B5IG9mIHRoZSBjb250ZW50cyBvZiB0aGUgZWRpdG9yLiBDb25zZXF1ZW50bHksIHVubGlrZSAqS25pdCosICpQcmV2aWV3KiBkb2VzIG5vdCBydW4gYW55IFIgY29kZSBjaHVua3MuIEluc3RlYWQsIHRoZSBvdXRwdXQgb2YgdGhlIGNodW5rIHdoZW4gaXQgd2FzIGxhc3QgcnVuIGluIHRoZSBlZGl0b3IgaXMgZGlzcGxheWVkLgo=</div>
 
 
 
