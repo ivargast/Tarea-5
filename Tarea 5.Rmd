@@ -8,15 +8,59 @@ This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
 
 ```{r}
-    install.packages("quantmod")
+    #install.packages("quantmod")
     library(quantmod)
+library(ggplot2)
 
 start <- as.Date("2000-01-01")
-end <- as.Date("2018-08-01")
+end <- as.Date("2018-09-01")
 
 getSymbols("AAPL", src = "yahoo", from = start, to = end, periodicity = "monthly")
-getSymbols("MSFT", src = "yahoo", from = start, to = end, periodicity = "monthly")
+#getSymbols("MSFT", src = "yahoo", from = start, to = end, periodicity = "monthly")
+
+AAPLDF=data.frame(AAPL$AAPL.Close)
+MSFTDF=data.frame(MSFT$MSFT.Close)
+
+retorno1=data.frame(diff(MSFTDF$MSFT.Close,k=1)/lag(MSFTDF$MSFT.Close,k=1))
+retorno2=data.frame(diff(log(MSFTDF$MSFT.Close),k=1))
+colnames(retorno1)[1] = "Retorno niv"
+colnames(retorno2)[1] = "Retorno log"
+retornoac1=data.frame(cumsum(retorno1$`Retorno niv`))
+retornoac2=data.frame(cumsum(retorno2$`Retorno log`))
+colnames(retornoac1)[1] = "Retorno acum. niv"
+colnames(retornoac2)[1] = "Retorno acum. log"
+
+graph1=ggplot(retorno1, aes(x=1:nrow(retorno), y=retorno1$`Retorno niv`)) + geom_line()
+plot(graph1)
+graph2=ggplot(retorno2, aes(x=1:nrow(retorno2), y=retorno2$`Retorno log`)) + geom_line()
+plot(graph2)
+graph3=ggplot(retornoac1, aes(x=1:nrow(retornoac1), y=retornoac1$`Retorno acum. niv`)) + geom_line()
+plot(graph3)
+graph4=ggplot(retornoac2, aes(x=1:nrow(retornoac2), y=retornoac2$`Retorno acum. log`)) + geom_line()
+plot(graph4)
+
+
+#funcion1=function(x){
+ # if (x=MSFTDF)
+  #retorno=data.frame((MSFTDF$MSFT.Close[x]-MSFTDF$MSFT.Close[x-1])/MSFTDF$MSFT.Close[x-1])
+ # print(retorno)
+#}
+
+#funcion2=function(x){
+ # retorno=((MSFTDF$MSFT.Close[x]-MSFTDF$MSFT.Close[x-1])/MSFTDF$MSFT.Close[x-1])
+  #print(retorno)
+#}
+
+
+
+
+
+
+
+#funcionmaestra(MSFT, return = c("yes", "no"), graph = #c("type 1", "type 2"), norm = c("yes", "no"))
+
 ```
+
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
 
