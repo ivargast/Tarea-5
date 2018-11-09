@@ -39,6 +39,33 @@ plot(graph3)
 graph4=ggplot(retornoac2, aes(x=1:nrow(retornoac2), y=retornoac2$`Retorno acum. log`)) + geom_line()
 plot(graph4)
 
+skk=matrix(NA,nrow = length(retorno1$`Retorno niv`) ,ncol = 3)
+s=sum(retorno1$`Retorno niv`[!is.na(retorno1$`Retorno niv`)])
+n=length(retorno1$`Retorno niv`[!is.na(retorno1$`Retorno niv`)])
+m=s/n
+for (j in 1:3) {
+for (i in 1:length(retorno1$`Retorno niv`)) {
+  skk[i,j]=(retorno1$`Retorno niv`[i]-m)^(j+1)
+}
+}
+skk=data.frame(skk)
+s1=sum(skk$X1[!is.na(skk$X1)])
+s2=sum(skk$X2[!is.na(skk$X2)])
+s3=sum(skk$X3[!is.na(skk$X3)])
+skewness=((1/n)*s2)/(((1/n)*s1)^(3/2))
+kurtosis=((1/n)*s3)/(((1/n)*s1)^2)
+JB=n*(((skewness^2)/6)+(((kurtosis-3)^2)/24))
+
+
+
+
+
+
+
+
+
+
+
 
 
 
